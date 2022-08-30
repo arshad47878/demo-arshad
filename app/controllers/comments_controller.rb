@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_articles, only: [:create, :destroy]
+  before_action :find_article, only: [:create, :destroy]
   def create
     @comment = @article.comments.create(comment_params)
     redirect_to articles_path(@article)
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:commenter, :body)
   end
-  def find_articles
+  def find_article
     @article = Article.find(params[:id])
   end
 end
