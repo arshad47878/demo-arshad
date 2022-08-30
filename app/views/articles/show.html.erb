@@ -7,6 +7,8 @@
   <strong>Text:</strong>
   <%= @article.text %>
 </p>
+<%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to 'Back', articles_path %>
 
 <h2>Comments</h2>
 <%= render @article.comments %>
@@ -14,5 +16,3 @@
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
