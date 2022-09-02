@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+
+.table-class:hover{
+    background-color: #94b8ee42;
+  }
+
