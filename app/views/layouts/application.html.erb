@@ -14,7 +14,9 @@
      <%= render "header_and_footer/header" %>
     <div class="container">
       <div class="row">
-         <%= yield %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
       </div>
     </div>
   </body>
