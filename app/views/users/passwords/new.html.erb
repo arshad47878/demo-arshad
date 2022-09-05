@@ -1,0 +1,27 @@
+<div class="col">
+  <h2 style="text-align: center; background-color: #9e9e9e;">Forgot your password?</h2>
+
+  <div style="background-color: #cbd5da;">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <br>
+
+      <div class="field col-6 mx-auto">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <br>
+
+      <div class="actions d-grid gap-2 col-6 mx-auto shadow">
+        <%= f.submit "Send me reset password instructions", class: "btn btn-primary btn-lg" %>
+      </div>
+      <br>
+      <br>
+    <% end %>
+
+    <%= render "users/shared/links" %>
+
+  </div>
+</div>
