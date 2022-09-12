@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :find_article, only: [:create, :destroy, :sh]
   def create
-    @comment = @article.comments.create(comment_params)
+    @comment = @article.comments.create(comment_params.merge(user_id: current_user.id))
     redirect_to article_path(@article)
   end
 
