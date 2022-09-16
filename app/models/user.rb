@@ -1,8 +1,12 @@
 class User < ApplicationRecord
+  after_create :welcome_email
+  has_many :comments, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [:google_oauth2]
+
+
 
   def full_name
     "#{first_name} #{last_name}"
@@ -22,5 +26,11 @@ class User < ApplicationRecord
     user.first_name = access_token.info.first_name
     user.last_name = access_token.info.last_name
     user
+  end
+
+  private
+  def welcome_email
+    UserMailer.with(user: self).welcome_email.deliver_now
+
   end
 end
