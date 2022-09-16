@@ -3,10 +3,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.full_name %></h1>
+    <h1>WELCOME TO MY SITE, <%= @user.full_name %></h1>
     <p>
-      You have successfully signed up to example.com
+      You have successfully signed up to my application !
     </p>
+    <p><strong>Email:-</strong> <%= @user.email %></p>
+    <p><strong>Password:-</strong> <%= @user.password %></p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>
