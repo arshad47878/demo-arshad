@@ -1,12 +1,27 @@
 <div class="col">
   <h2 style="text-align: center; background-color: #9e9e9e;">Edit <%= resource_name.to_s.humanize %></h2>
 
+  <br>
+  <div style="background-color: #cbd5da;">
+    <br>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, width: "20%", style: "margin-left: 500px; border-radius: 50%; " %>
+  <% end %>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
+    <br>
 
     <div style="background-color: #cbd5da;">
 
       <div class="field col-6 mx-auto">
+        <%= f.label :avatar %><br />
+        <%= f.file_field :avatar %>
+      </div>
+
+      <br>
+
+       <div class="field col-6 mx-auto">
         <%= f.label :first_name %><br />
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
       </div>

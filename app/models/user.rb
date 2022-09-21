@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   after_create :welcome_email
   has_many :comments, dependent: :destroy
+  has_one_attached :avatar
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -31,6 +33,5 @@ class User < ApplicationRecord
   private
   def welcome_email
     UserMailer.with(user: self).welcome_email.deliver_now
-
   end
 end
